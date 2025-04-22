@@ -20,7 +20,7 @@ const LatestCollection = () => {
             <Title text1={'LATEST'} text2={'COLLECTIONS'}></Title>
     
             <p className='w-3/4 m-auto text-xs sm:text-sm md:text-base text-gray-600'>
-            Đau khổ là một phần của cuộc sống, nhưng nó không phải là tất cả. Hãy tìm kiếm những điều tốt đẹp trong cuộc sống và hãy sống hết mình với những gì bạn có.
+            abcdef
             </p>
         </div>
 

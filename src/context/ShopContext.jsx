@@ -20,7 +20,7 @@ const ShopContextProvider = (props) =>{
     const [products, setProducts] = useState([]);
 
 
-    const [token, setToken] = useState('');
+    const [token, setToken] = useState(localStorage.getItem('token') || '');
 
 
     const navigate = useNavigate();
@@ -33,25 +33,25 @@ const ShopContextProvider = (props) =>{
             return;
         }
 
-        let cardData = structuredClone(cartItems);
+        let cartData = structuredClone(cartItems);
         let quantity = 1;
 
-        if (cardData[itemId]) {
-            if (cardData[itemId][ram]) {                
-                cardData[itemId][ram] += 1;
+        if (cartData[itemId]) {
+            if (cartData[itemId][ram]) {                
+                cartData[itemId][ram] += 1;
             }
             else {
 
                 
                 
-                cardData[itemId][ram] = 1;
+                cartData[itemId][ram] = 1;
             }
         }
         else {
-            cardData[itemId] = {};
-            cardData[itemId][ram] = 1;
+            cartData[itemId] = {};
+            cartData[itemId][ram] = 1;
         }
-        setCartItems(cardData);
+        setCartItems(cartData);
 
         if (token) {
             try {
@@ -175,7 +175,7 @@ const ShopContextProvider = (props) =>{
     const value = {
         products, currency, delivery_fee,
         search, setSearch, showSearch, setShowSearch,
-        cartItems, addToCart,
+        cartItems, addToCart, setCartItems,
         getCartCount,updateQuantity,
         getCartAmount, navigate, backendUrl,
 
